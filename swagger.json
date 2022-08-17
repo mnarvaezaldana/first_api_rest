@@ -1,0 +1,113 @@
+{
+    "opanapi": "3.0.0",
+    "info": {
+        "title": "IMDN REST API",
+        "version": "1.0",
+        "descripion": "REST API de marcos narvaez"
+    },
+    "paths": {
+        "/clients": {
+            "get": {
+                "descripion": "obtener todos los clientes",
+                "tags": ["Clients"],
+                "responses": {
+                    "200": {
+                        "descripion": "Lista de actores"
+                    }
+                }
+            },
+            "post": {
+                "descripion": "crear un cliente",
+                "tags": ["Clients"],
+                "requestBody": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Director"
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Se ha creado un cliente satisfactoriamente"
+                    }
+                }
+            }
+        },
+        "/payment_method_types": {
+            "get": {
+                "tags": ["PaymentMethods"],
+                "responses": {
+                    "200": {
+                        "descripion": "Lista de directores"
+                    }
+                }
+
+            },
+            "post": {
+                "tags": ["PaymentMethods"],
+                "requestBody": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Director"
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Se ha creado un Director satisfactoriamente"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Actor": {
+                "properties": {
+                    "firstname": {
+                        "type": "string"
+                    },
+                    "lastname": {
+                        "type": "string"
+                    },
+                    "dob": {
+                        "type": "date",
+                        "description": "Date of birth",
+                        "example": "1990-02-01"
+                    },
+                    "biography": {
+                        "type": "string"
+                    },
+                    "profile_photo": {
+                        "type": "string",
+                        "description": "image URL",
+                        "example": "https://apihandyman.io/image/78945" 
+                    }
+                }
+            },
+            "Director": {
+                "properties": {
+                    "firstname": {
+                        "type": "string"
+                    },
+                    "lastname": {
+                        "type": "string"
+                    },
+                    "dob": {
+                        "type": "date",
+                        "description": "Date of birth",
+                        "example": "1990-02-01"
+                    },
+                    "biography": {
+                        "type": "string"
+                    },
+                    "profile_photo": {
+                        "type": "string",
+                        "description": "image URL",
+                        "example": "https://apihandyman.io/image/78945" 
+                    }
+                }
+            }
+        }
+    }
+}
