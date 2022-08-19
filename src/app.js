@@ -2,6 +2,8 @@ const express = require('express');
 const app = require('./server.js');
 const logger = require('morgan');
 const fs = require('fs');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocs = require('../swagger.json');
 
 //Routers
 const clientRoutes = require('./routes/clients');
@@ -9,6 +11,7 @@ const paymentMethodTypesRoutes = require('./routes/payment_method_types');
 
 
 //Middleware
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(express.json());
 
 //app.get("/", (req, res) => res.json("Academolo-api.json 1.0.1"))

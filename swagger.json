@@ -1,23 +1,33 @@
 {
-    "opanapi": "3.0.0",
+    "openapi": "3.0.0",
     "info": {
-        "title": "IMDN REST API",
+        "title": "Marcos REST API",
         "version": "1.0",
-        "descripion": "REST API de marcos narvaez"
+        "description": "REST API de marcos narvaez"
     },
+    "servers": [
+        {
+            "url": "https://localhost:8000/api/v1",
+            "description": "Development"
+        },
+        {
+            "url": "https://myapp.heroku/api/v1",
+            "description": "Production"
+        }
+    ],
     "paths": {
         "/clients": {
             "get": {
-                "descripion": "obtener todos los clientes",
+                "description": "obtener todos los clientes",
                 "tags": ["Clients"],
                 "responses": {
                     "200": {
-                        "descripion": "Lista de actores"
+                        "description": "Lista de actores"
                     }
                 }
             },
             "post": {
-                "descripion": "crear un cliente",
+                "description": "crear un cliente",
                 "tags": ["Clients"],
                 "requestBody": {
                     "application/json": {
@@ -38,14 +48,13 @@
                 "tags": ["PaymentMethods"],
                 "responses": {
                     "200": {
-                        "descripion": "Lista de directores"
+                        "description": "Lista de directores"
                     }
                 }
-
             },
             "post": {
                 "tags": ["PaymentMethods"],
-                "requestBody": {
+                "requesBody": {
                     "application/json": {
                         "schema": {
                             "$ref": "#/components/schemas/Director"
